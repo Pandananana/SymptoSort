@@ -12,8 +12,8 @@ from sklearn.metrics import classification_report, accuracy_score, confusion_mat
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.linear_model import LinearRegression, Lasso, LogisticRegression, Lasso, Ridge
 
-model = joblib.load('model.pkl')
-le = joblib.load('le.pkl')
+model = joblib.load('models/model.pkl')
+le = joblib.load('models/le.pkl')
 
 # Get symptoms from user
 print('Please enter your symptoms separated by commas:')
@@ -21,7 +21,7 @@ symptoms = input().split(',')
 symptoms = [symptom.strip().lower() for symptom in symptoms]  # Added lower() and strip() for consistency
 
 # Get columns from model
-df_cols = pd.read_csv('cols.csv', header=None)
+df_cols = pd.read_csv('datasets/cols.csv', header=None)
 cols = df_cols.iloc[0].str.replace(' ', '').str.lower().tolist()
 
 # Create a new row filled with zeros
